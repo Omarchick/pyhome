@@ -1,0 +1,11 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+  <h1>Список сущностей</h1>
+  <ul>
+    {% for entity in entities %}
+      <li><a href="{% url 'entity_detail' entity.pk %}">{{ entity.name }}</a></li>
+    {% endfor %}
+  </ul>
+  <a href="{% url 'entity_create' %}">Добавить новую сущность</a>
+{% endblock %}

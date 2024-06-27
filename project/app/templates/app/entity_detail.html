@@ -1,0 +1,14 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+  <h1>{{ entity.name }}</h1>
+  <p>{{ entity.description }}</p>
+  <p>Создано: {{ entity.created_at }}</p>
+  <p>Обновлено: {{ entity.updated_at }}</p>
+  <a href="{% url 'entity_edit' entity.pk %}">Редактировать</a>
+  <form action="{% url 'entity_delete' entity.pk %}" method="post">
+    {% csrf_token %}
+    <button type="submit">Удалить</button>
+  </form>
+  <a href="{% url 'entity_list' %}">Назад к списку</a>
+{% endblock %}
